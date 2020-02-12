@@ -1,10 +1,19 @@
-/** svg.path.js - v0.6.0 - 2014-08-15
+/** svg.path.js - v0.6.2 - 2020-02-12
  * http://otm.github.io/svg.path.js/
- * Copyright (c) 2014 Nils Lagerkvist; Licensed under the  MIT license /
+ * Copyright (c) 2020 Nils Lagerkvist; Licensed under the  MIT license /
  */
-(function() {
+(function (root, factory) {
+	if (typeof define === 'function' && define.amd) {
+		define(['@svgdotjs/svg.js'], factory);
+	} else if (typeof module === 'object' && module.exports) {
+		module.exports = factory(require('@svgdotjs/svg.js'));
+	} else {
+		root.returnExports = factory(root.b);
+	}
+}(typeof self !== 'undefined' ? self : this, function (SVG) {
 
 	var slice = Function.prototype.call.bind(Array.prototype.slice);
+	var clear = SVG.Path.prototype.clear;
 
 	SVG.extend(SVG.Path, {
 		M: function(p){
@@ -125,12 +134,12 @@
 
 			return this;
 		},
-		clearPath: function(){
+		clear: function(){
 			if (this._segments){
-				this._segments.length = 0;
+				this._segments.splice(0, this._segments.length);
 			}
 			this._lastSegment = null;
-			return this.plot();
+			return clear.apply(this, arguments);
 		},
 		getSegmentCount: function(){
 			return this._segments.length;
@@ -216,4 +225,4 @@
 		}
 	});
 
-}).call(this);
+}));

@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 				return String(str).remove(/\.js$/, "");
 			}
 		},
-		banner: '/** <%= pkg.main || pkg.name %>.js - v<%= pkg.version %> - ' +
+		banner: '/** <%= pkg.main || pkg.name %> - v<%= pkg.version %> - ' +
 			'<%= grunt.template.today("yyyy-mm-dd") %>\n' +
 			'<%= pkg.homepage ? " * " + pkg.homepage + "\\n" : "" %>' +
 			' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
@@ -22,8 +22,8 @@ module.exports = function(grunt) {
 				stripBanners: "block"
 			},
 			dist: {
-				src: ['<%= pkg.name %>.js'],
-				dest: '<%= pkg.name %>.js'
+				src: ['<%= pkg.name %>'],
+				dest: '<%= pkg.name %>'
 			}
 		},
 		uglify: {
@@ -32,7 +32,7 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				src: '<%= concat.dist.dest %>',
-				dest: '<%= pkg.name %>.min.js'
+				dest: "<%= pkg.name.replace('.js', '') %>.min.js"
 			}
 		},
 		jshint: {
@@ -48,7 +48,7 @@ module.exports = function(grunt) {
 				unused: true,
 				boss: true,
 				eqnull: true,
-				globals: { "window": true, "SVG": true }
+				globals: { "window": true, "SVG": true, "define": true, "module": true, "require": true, "self": true }
 			},
 			svgpathfile: {
 				src: 'svg.path.js'

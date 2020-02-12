@@ -99,7 +99,7 @@ Curveto commands specify a Bezier curve. There are two types of Bezier curves: C
 Cubic Bezier curves takes three objects. The two first objects are control points for the initial point and end point respectively in absolute coordinates. The last object is is the end point of the curveto segment.
 
 ```javascript
-var rect = draw.path().m({x: 100, y: 100}).C({x: 100, y: 200}, {x: 200, y: 2oo}, {x: 200, y: 100})
+var rect = draw.path().m({x: 100, y: 100}).C({x: 100, y: 200}, {x: 200, y: 200}, {x: 200, y: 100})
 ```
 
 ### c({dc1x, dc1y}, {dc2x, dc2y}, {dx, dy})
@@ -131,7 +131,7 @@ For chains of smooth Bezier curves, the T and S commands are available. Their sy
 ```javascript
 var rect = draw.path()
 	.M({x: 100, y: 100})
-	.C({x: 100, y: 200}, {x: 200, y: 2oo}, {x: 200, y: 100})
+	.C({x: 100, y: 200}, {x: 200, y: 200}, {x: 200, y: 100})
 	.S({x: 300, y:200}, {x: 300, y: 100}) // The "reflected control point will be `{x:200, y:100}`
 ```
 
