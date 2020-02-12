@@ -1,6 +1,7 @@
 {
   "name": "svg.path.js",
   "main": "svg.path.js",
+  "types": "svg.path.js.d.ts",
   "version": "0.6.2",
   "description": "A path extension for the svg.js library",
   "keywords": [
