@@ -47,8 +47,8 @@ declare module "@svgdotjs/svg.js" {
         Z(): this;
         clear(): this;
         addSegment(movement: Movement, coordinates: Array<number>, redraw?: boolean): this;
-        getSegmentCount(): this;
-        getSegment(index: number): this;
+        getSegmentCount(): number;
+        getSegment(index: number): Segment;
         removeSegment(index: number): this;
         replaceSegment(index: number, segment: Segment): this;
         drawAnimated(options?: DrawAnimatedOptions): this;
