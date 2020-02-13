@@ -8,7 +8,7 @@ declare module "@svgdotjs/svg.js" {
 
     interface Segment {
         type: Movement;
-        coords: Array<number>;
+        coords: number[];
     }
 
     interface Path {
