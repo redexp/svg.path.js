@@ -14,6 +14,8 @@ declare module "@svgdotjs/svg.js" {
     interface Path {
         M(point: PathPoint): this;
         M(x: number, y: number): this;
+        m(point: PathPoint): this;
+        m(x: number, y: number): this;
         L(point: PathPoint): this;
         L(x: number, y: number): this;
         l(point: PathPoint): this;
